@@ -1,0 +1,9 @@
+
+.button{
+    position: absolute;
+    left: 35rem;
+    bottom: -38rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
