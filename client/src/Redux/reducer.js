@@ -3,7 +3,6 @@
 const initalState = {
     allDogs: [],
     allTemps: [],
-
 }
 
 const Reducer = (state = initalState, action)=>{
@@ -15,7 +14,7 @@ const Reducer = (state = initalState, action)=>{
             }
         case 'GET_TEMPS':
             return{
-                ...state, allTemps: action.payload
+                ...state, allTemps: action.payload.sort((a,b) => a.name.localeCompare(b.name))
             }
         case 'ORDER_BY_ALPHABET':
             
@@ -23,31 +22,40 @@ const Reducer = (state = initalState, action)=>{
                 ...state,
                 allDogs: action.payload === "A" ? 
                     allDogsCopy.sort((a,b) => {
-                        const [aMin, aMax] = a.weight.split(" - ").map(Number);
-                        const [bMin, bMax] = b.weight.split(" - ").map(Number);
-
-                        if (a.name === b.name) {
-                            const aWeight = (aMin + aMax) / 2;
-                            const bWeight = (bMin + bMax) / 2;
-                            return aWeight - bWeight;
-                        }
 
                         return a.name.localeCompare(b.name);
                     })
                     :  allDogsCopy.sort((a,b) => {
-                        const [aMin, aMax] = a.weight.split(" - ").map(Number);
-                        const [bMin, bMax] = b.weight.split(" - ").map(Number);
-
-                        if (a.name === b.name) {
-                            const aWeight = (aMin + aMax) / 2;
-                            const bWeight = (bMin + bMax) / 2;
-                            return( aWeight - bWeight) * -1;
-                        }
 
                         return a.name.localeCompare(b.name) * -1;
                     })
                 
-            }        
+            }      
+        case "ORDER_BY_WEIGHT":
+            return{
+                ...state,
+                allDogs: action.payload === "ASC"?
+                    allDogsCopy.sort((a,b) =>{
+                        const [aMin, aMax] = a.weight.split(" - ").map(Number);
+                        const [bMin, bMax] = b.weight.split(" - ").map(Number);
+
+                        
+                            const aWeight = (aMin + aMax) / 2;
+                            const bWeight = (bMin + bMax) / 2;
+                            return aWeight - bWeight;
+                        
+                    })
+                    : allDogsCopy.sort((a,b) => {
+                        const [aMin, aMax] = a.weight.split(" - ").map(Number);
+                            const [bMin, bMax] = b.weight.split(" - ").map(Number);
+    
+                            
+                                const aWeight = (aMin + aMax) / 2;
+                                const bWeight = (bMin + bMax) / 2;
+                                return( aWeight - bWeight) * -1;
+                            
+                })
+                } 
         
         case 'ORDER_BY_ORIGIN':
             if(action.payload === "api"){
@@ -71,7 +79,7 @@ const Reducer = (state = initalState, action)=>{
             return{
                 ...state,
                 allDogs: allDogsCopy.filter((dog) => dog.temperament? dog.temperament.includes(action.payload) : null)
-                //allDogs: allDogsCopy.filter((dog) => dog.temperaments)
+                
             }
         
             default: return {...state}

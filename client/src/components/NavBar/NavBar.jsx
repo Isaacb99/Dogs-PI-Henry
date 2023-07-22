@@ -3,7 +3,7 @@ import styles from "./NavBar.module.css"
 import hueso from "../../utils/hueso.png"
 import { useEffect } from "react"
 import { useSelector, useDispatch} from "react-redux"
-import { getTemps, dogsByAlphabetOrder, dogsByOrigin, getDogs, dogsByTemp } from "../../Redux/actions"
+import { getTemps, dogsByAlphabetOrder, dogsByOrigin, getDogs, dogsByTemp, dogsByWeight } from "../../Redux/actions"
 
 
 
@@ -19,6 +19,10 @@ const NavBar = () => {
 
     const handleOrder = (e) => {
         dispatch(dogsByAlphabetOrder(e.target.value))
+    }
+
+    const handleOrderKG = (e) => {
+        dispatch(dogsByWeight(e.target.value))
     }
 
     const handleOrigin = async (e) => {
@@ -41,7 +45,16 @@ const NavBar = () => {
                 <img src={hueso} alt="logo" className={styles.img}/>
             </Link>
 
+            <Link to="/create">
+                <button>Crear Raza</button>
+            </Link>
+
             <button onClick={handleReset}>Resetear filtros</button>
+
+            <div>
+                <button onClick={handleOrderKG} value={"ASC"}>Peso ASC</button>
+                <button onClick={handleOrderKG} value={"DES"}>Peso DES</button>
+            </div>
 
             <div>
                 <button onClick={handleOrder} value={"A"}>A-Z</button>

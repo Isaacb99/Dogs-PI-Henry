@@ -1,16 +1,24 @@
 import { NavLink } from "react-router-dom";
 
+import styles from "./LandingPage.module.css"
 
 
 const LandingPage = () =>{
 
     return(
-        <div>
-            <h2>Landing Page</h2>
-            <NavLink to="/home">
-                <button>Bienvenido</button>
-            </NavLink>
-        </div>
+        
+            <div className={styles.div_cont}>
+
+                <div className={styles.div_bien}>
+                </div>
+                <h2 className={styles.titulo}>Bienvenidos</h2>
+                    <NavLink to="/home">
+                        <button className={styles.boton}>Acceder</button>
+                    </NavLink>
+                
+                
+            </div>
+            
     )
 
 }

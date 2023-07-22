@@ -1,0 +1,60 @@
+
+.div_cont{
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image:url("../../utils/fondo_huesos.jpg");
+    overflow:hidden;
+    background-size: cover;; 
+}
+
+.div_bien{
+    position: absolute;
+    background-color: aqua;
+    opacity: 0.4;
+    border-radius: 20px;
+    border-color: aqua;
+    height: 15rem;
+    width: 55rem;
+    top: 20px;
+}
+
+.titulo{
+    position: absolute;
+    top: -4rem;
+    left: rem;
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    opacity: 0.8;
+}
+
+.boton {
+    position: absolute;
+    top: 10rem;
+    left: 36rem;
+    border: 1px solid black;
+    padding: 12px 30px 12px 30px;
+    border-radius: 30px;
+    background-color: #fdceb6;
+    font-weight: bolder;
+    font-size: 15px;
+    box-shadow: 0px 0px 1px;
+    transform: all 2s esase;
+    transition-duration: .3s;
+}
+
+.boton:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 7px 1px rgb(0, 0, 0);
+    border: 1px solid black;
+}
+
+.boton:active {
+    transform: translateY(10px);
+    box-shadow: 0px 0px 1px;
+}
+    
+

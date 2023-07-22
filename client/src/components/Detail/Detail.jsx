@@ -22,15 +22,18 @@ const Detail = () => {
 
     return (
     <div className={styles.container}>
-        <h1>{dog.name && dog.name}</h1>
-        <img src={dog.image && dog.image} alt={dog.name && dog.name} className={styles.image} />
-        <h2 className={styles.detailText}>Peso: {dog.weight && dog.weight}</h2>
-        <h2 className={styles.detailText}>Altura: {dog.height && dog.height}</h2>
-        <h2 className={styles.detailText}>Temperamento: {dog.temperament && dog.temperament}</h2>
-        <h2 className={styles.detailText}>Esperanza de vida: {dog.life_span && dog.life_span}</h2>
-        <NavLink to="/home" className={styles.link}>
-        <button className={styles.button}>Regresar</button>
-        </NavLink>
+        <div className={styles.container_detail}>
+            <h2 className={styles.titulo}>{dog.name && dog.name}</h2>
+            <img src={dog.image && dog.image} alt={dog.name && dog.name} className={styles.image} />
+            <h2 className={styles.detailText}>Peso: {dog.weight && dog.weight} Kg</h2>
+            <h2 className={styles.detailText}>Altura: {dog.height && dog.height} Cm</h2>
+            <h2 className={styles.detailText}>Temperamento: {dog.temperament && dog.temperament}</h2>
+            <h2 className={styles.detailText}>Esperanza de vida: {dog.life_span && dog.life_span}</h2>
+            <NavLink to="/home" className={styles.link}>
+            <button className={styles.button}>Regresar</button>
+            </NavLink>
+        </div>
+        
     </div>
     );
 };

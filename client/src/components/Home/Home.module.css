@@ -1,9 +1,100 @@
 
-.button{
+.div_cont{
+    display: grid;
+    place-items: center;
+    height: 120vw;
+    width: 99vw;
+    background-image:url("../../utils/fondo_huesos.jpg");
+    background-size: cover;
+}
+
+.cards_cont{
     position: absolute;
+    left: 0rem;
+    top: 0rem
+}
+
+
+
+.button{
+    padding-bottom: 15px;
+    position:fixed;
     left: 35rem;
-    bottom: -38rem;
+    bottom: -0rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+}
+
+.botonPrev{
+    margin-right: 20px;
+}
+
+.botonNext{
+    margin-left: 20px;
+}
+
+.Current{
+    color: black;
+    font-size: 1.5rem;
+}
+
+.search{
+    position: relative;
+    top: -42rem;
+    left: rem;
+}
+
+.boton_search{
+    margin-top: 5px;
+    margin-left: 30px;   
+}
+
+.boton_search {
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #0400ff, #4ce3f7);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+}
+
+.boton_search:hover {
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+box-shadow: 0 0 0 0 #05bada66;
+    }
+
+    70% {
+    box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+
+    100% {
+    box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+}
+
+.input {
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+}
+
+.input:focus {
+    background-color: white;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #969696,
+            -13px -13px 100px #ffffff;
 }

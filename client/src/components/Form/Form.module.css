@@ -1,0 +1,56 @@
+
+.cont_temp{
+    /* display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px; */
+    max-height: 150px; /* Altura máxima del contenedor */
+    overflow-y: auto; /* Barra de desplazamiento vertical */
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.temp-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.temp-item label {
+    margin-right: 5px;
+}
+
+.div_cont{
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vw;
+    background-image:url("../../utils/fondo_huesos.jpg");
+}
+
+.div_inputs{
+    display: grid;
+    place-items: center;
+}
+
+.errors{
+    color: rgb(177, 4, 4);
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.etiquetas{
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.boton{
+    position: relative;
+    left: 4rem;
+    top: 2rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

@@ -30,9 +30,27 @@ export function getTemps(){
     }
 }
 
+export function postDog(info){
+    return async function(dispatch){
+        try {
+            const response = await axios.post('http://localhost:3001/dogs', info)
+            alert("Nueva raza creada exitosamente")
+        } catch (error) {
+            alert(error.response.data.error)
+        }
+    }
+}
+
 export const dogsByAlphabetOrder = (payload) => {
     return{
         type: 'ORDER_BY_ALPHABET',
+        payload
+    }
+}
+
+export const dogsByWeight = (payload) => {
+    return{
+        type: "ORDER_BY_WEIGHT",
         payload
     }
 }

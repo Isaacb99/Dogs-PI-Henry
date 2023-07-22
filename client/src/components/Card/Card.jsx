@@ -12,7 +12,7 @@ const Card = (props) => {
             </Link>
             <h3>Temperamentos:</h3>
             <h4>{props.temperament}</h4>
-            <h3>Peso: {props.weight}</h3>
+            <h3>Peso: {props.weight} Kg</h3>
 
         </div>
     )

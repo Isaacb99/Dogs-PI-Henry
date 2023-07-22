@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
-import { getDogs } from '../../Redux/actions'
+import { getDogs, dogsByTemp } from '../../Redux/actions'
+import axios from "axios"
 import Cards from '../Cards/Cards'
 import styles from "./Home.module.css"
 
@@ -11,16 +12,19 @@ const Home = () => {
 
     const dogs = useSelector(state => state.allDogs)
 
+    const temps = useSelector(state => state.allTemps)
+
     const ITEMS_PER_PAGE = 8;
 
     const [currentPage, setCurrentPage] = useState(0);
     const [items, setItems] = useState([]);
+    const [search, setSearch] = useState("")
+    const [searchedDog, setSearchedDog] = useState({})
     
 
     useEffect( () => {
         !(dogs.length) && dispatch(getDogs())
     }, [])
-
 
 
     useEffect(() => {
@@ -47,20 +51,41 @@ const Home = () => {
         setCurrentPage(prevPage);
     }
 
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+    }
+
+    const handleSearch = async (name) => {
+        try {
+            dispatch(dogsByTemp(name))
+            setItems(dogs)
+            setSearch("")
+        } catch (error) {
+            alert(error.response.data.error)
+        }
+    }
 
 
     return(
-        <div>
-            <div>
-
-                <Cards dogs={items}/>
+        <div className={styles.div_cont}>
             
-                <div className={styles.button}>
-                    <button onClick={prevPage}>Prev</button>
-                    <h3>{currentPage + 1}</h3>
-                    <button onClick={nextPage}>Next</button>
-                </div>
+            <div className={styles.search}>
+                <input type="text" onChange={handleChange} placeholder='ingrese temp a buscar' className={styles.input}/>
+                <button onClick={() => handleSearch(search)} className={styles.boton_search}>Buscar</button>
             </div>
+            
+
+            <div className={styles.cards_cont}>
+                <Cards dogs={items}/>
+            </div>
+                
+            
+            <div className={styles.button}>
+                <button onClick={prevPage} className={styles.botonPrev}>Prev</button>
+                <h3 className={styles.Current}>{currentPage + 1}</h3>
+                <button onClick={nextPage} className={styles.botonNext}>Next</button>
+            </div>
+            
             
             
             

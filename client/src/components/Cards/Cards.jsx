@@ -9,14 +9,15 @@ const Cards = ({dogs}) => {
         <div className={style.cards}>
 
             {dogs.map((dog) => {
-                
                 return(
                     <Card id ={dog.id} name={dog.name} image={dog.image} 
                     temperament={dog.temperament}
                     weight={dog.weight} key={dog.id}
                     />
                 )
-            })}
+            })
+            
+        }
         </div>
     )
 }
